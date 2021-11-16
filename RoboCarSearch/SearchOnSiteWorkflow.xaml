@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1166,1517</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1166,1997</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SearchOnSiteWorkflow_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -44,7 +44,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="26">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="52">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -71,6 +71,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="SearchOnSiteWorkflow" sap:VirtualizedContainerService.HintSize="1044,1932" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -214,7 +215,10 @@
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:Click>
                   <FlowStep.Next>
-                    <FlowDecision x:Name="__ReferenceID7" Condition="[sortType.Equals(&quot;Highest&quot;)]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+                    <FlowDecision x:Name="__ReferenceID7" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+                      <FlowDecision.Condition>
+                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="sortType.Equals(&quot;highest&quot;)" />
+                      </FlowDecision.Condition>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">161.5,529</av:Point>
@@ -244,7 +248,7 @@
                               </ui:CursorPosition>
                             </ui:Click.CursorPosition>
                             <ui:Click.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="183e5326-6c72-4a6e-a50f-3623c5bee752" InformativeScreenshot="059a24bc9c2a336ff5590e7a884afa50" Selector="&lt;html app='msedge.exe' title='*OLX.ro' /&gt;&lt;webctrl id='targetorder-select-gallery' parentid='form-order-gallery' /&gt;&lt;webctrl aaname='Scumpefilter_float_price:desc' parentid='targetorder-select-gallery' tag='A' /&gt;" WaitForReady="COMPLETE">
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="183e5326-6c72-4a6e-a50f-3623c5bee752" InformativeScreenshot="059a24bc9c2a336ff5590e7a884afa50" Selector="&lt;html app='msedge.exe' title='*OLX.ro*' /&gt;&lt;webctrl parentid='targetorder-select-gallery' tag='LI' idx='3' /&gt;&lt;webctrl parentid='targetorder-select-gallery' tag='A' /&gt;" WaitForReady="COMPLETE">
                                 <ui:Target.TimeoutMS>
                                   <InArgument x:TypeArguments="x:Int32" />
                                 </ui:Target.TimeoutMS>
@@ -327,7 +331,7 @@
                                               <av:PointCollection x:Key="ConnectorLocation">220,1425.5 220,1460</av:PointCollection>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <ui:BuildDataTable DataTable="[outputAds]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Title&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Price&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Location&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
+                                          <ui:BuildDataTable DataTable="[outputAds]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Title&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Price&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Location&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -365,7 +369,7 @@
                                                       <av:PointCollection x:Key="ConnectorLocation">220,1605.5 220,1644.5</av:PointCollection>
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
-                                                  <ui:InterruptibleWhile DisplayName="While" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+                                                  <ui:InterruptibleWhile Condition="[adsCount&lt;11]" DisplayName="While" sap:VirtualizedContainerService.HintSize="412,1126" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
                                                     <ui:InterruptibleWhile.Body>
                                                       <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,961" sap2010:WorkflowViewState.IdRef="Sequence_2">
                                                         <Sequence.Variables>
@@ -381,13 +385,10 @@
                                                         </sap:WorkflowViewStateService.ViewState>
                                                         <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'STRONG'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_3">
                                                           <ui:GetValue.Target>
-                                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="84202a30-d808-4ffe-8a1f-7caeef0cdcde" InformativeScreenshot="75a841bd1ceba01d9df0d4cce47614f5" Selector="[String.Format(&quot;&lt;html app='msedge.exe' title='*OLX.ro*' /&gt;&lt;webctrl parentid='offers_table' tableCol='2' tableRow='1' tag='A' idx='{0}' /&gt;&lt;webctrl parentid='offers_table' tag='STRONG' /&gt;&quot;, adsCount)]">
+                                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="84202a30-d808-4ffe-8a1f-7caeef0cdcde" InformativeScreenshot="75a841bd1ceba01d9df0d4cce47614f5" Selector="[String.Format(&quot;&lt;html app='msedge.exe' title='*OLX.ro*' /&gt;&lt;webctrl parentid='offers_table' tableCol='2' tableRow='1' tag='A' idx='{0}' /&gt;&lt;webctrl parentid='offers_table' tag='STRONG' /&gt;&quot;, adsCount)]" WaitForReady="COMPLETE">
                                                               <ui:Target.TimeoutMS>
                                                                 <InArgument x:TypeArguments="x:Int32" />
                                                               </ui:Target.TimeoutMS>
-                                                              <ui:Target.WaitForReady>
-                                                                <InArgument x:TypeArguments="ui:WaitForReady" />
-                                                              </ui:Target.WaitForReady>
                                                             </ui:Target>
                                                           </ui:GetValue.Target>
                                                           <ui:GetValue.Value>
@@ -450,9 +451,6 @@
                                                         <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{outputTitle,outputPrice,outputLocation,outputTime}]" DataTable="[outputAds]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
                                                       </Sequence>
                                                     </ui:InterruptibleWhile.Body>
-                                                    <ui:InterruptibleWhile.Condition>
-                                                      <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="adsCount&lt;11" />
-                                                    </ui:InterruptibleWhile.Condition>
                                                     <sap:WorkflowViewStateService.ViewState>
                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -483,7 +481,7 @@
                                                               <av:Size x:Key="ShapeSize">200,51</av:Size>
                                                             </scg:Dictionary>
                                                           </sap:WorkflowViewStateService.ViewState>
-                                                          <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[outputAds]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="OLX" WorkbookPath="C:\Users\achim\Desktop\test.xlsx">
+                                                          <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[outputAds]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="OLX" WorkbookPath="C:\Users\achim\Desktop\test.xlsx">
                                                             <sap:WorkflowViewStateService.ViewState>
                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -583,7 +581,7 @@
                               <av:PointCollection x:Key="ConnectorLocation">330,675.5 330,705.5 201,705.5 201,778</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A  #'" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A  #'" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                             <ui:Click.CursorPosition>
                               <ui:CursorPosition Position="Center">
                                 <ui:CursorPosition.OffsetX>
@@ -595,7 +593,7 @@
                               </ui:CursorPosition>
                             </ui:Click.CursorPosition>
                             <ui:Click.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f6431bd7-a386-405e-9fbe-603441261e2a" InformativeScreenshot="19db26d769fcbe7f133e355bb6766ab4" Selector="&lt;html app='msedge.exe' title='*OLX.ro' /&gt;&lt;webctrl aaname='Ieftinefilter_float_price:asc' parentid='targetorder-select-gallery' tag='A' /&gt;">
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f6431bd7-a386-405e-9fbe-603441261e2a" InformativeScreenshot="19db26d769fcbe7f133e355bb6766ab4" Selector="&lt;html app='msedge.exe' title='*OLX.ro*' /&gt;&lt;webctrl parentid='targetorder-select-gallery' tag='LI' idx='2' /&gt;&lt;webctrl parentid='targetorder-select-gallery' tag='A' /&gt;">
                                 <ui:Target.TimeoutMS>
                                   <InArgument x:TypeArguments="x:Int32" />
                                 </ui:Target.TimeoutMS>
