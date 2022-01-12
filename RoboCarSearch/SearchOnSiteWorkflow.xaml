@@ -4,11 +4,12 @@
     <x:Property Name="inputMaxPrice" Type="InArgument(x:String)" />
     <x:Property Name="sortType" Type="InArgument(x:String)" />
     <x:Property Name="outputAds" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="excelPath" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>824,2045.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>990.4,2045.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SearchOnSiteWorkflow_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="60">
@@ -77,6 +78,7 @@
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.MicrosoftOffice365.Activities.Design</AssemblyReference>
       <AssemblyReference>Advance Excel</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="SearchOnSiteWorkflow" sap:VirtualizedContainerService.HintSize="773.6,1980.8" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -219,10 +221,7 @@
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:Click>
                   <FlowStep.Next>
-                    <FlowSwitch x:TypeArguments="x:String" Default="{x:Reference __ReferenceID1}" x:Name="__ReferenceID16" DisplayName="Flow Switch" sap:VirtualizedContainerService.HintSize="70.4,87.2" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_2">
-                      <FlowSwitch.Expression>
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="sortType" />
-                      </FlowSwitch.Expression>
+                    <FlowSwitch x:TypeArguments="x:String" Default="{x:Reference __ReferenceID1}" x:Name="__ReferenceID16" DisplayName="Flow Switch" Expression="[sortType]" sap:VirtualizedContainerService.HintSize="70.4,87.2" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_2">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">194.8,496.4</av:Point>
@@ -521,7 +520,7 @@
                                                             <av:PointCollection x:Key="ConnectorLocation">220,1719.3 220,1754.5</av:PointCollection>
                                                           </scg:Dictionary>
                                                         </sap:WorkflowViewStateService.ViewState>
-                                                        <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[&quot;C:\Users\&quot; + Environment.UserName +  &quot;\RPA.xlsx&quot;]">
+                                                        <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[excelPath + &quot;\&quot; + inputCarModel +  &quot;.xlsx&quot;]">
                                                           <ui:ExcelApplicationScope.Body>
                                                             <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                                                               <ActivityAction.Argument>
@@ -551,7 +550,7 @@
                                                                 <av:Size x:Key="ShapeSize">200,52.8</av:Size>
                                                               </scg:Dictionary>
                                                             </sap:WorkflowViewStateService.ViewState>
-                                                            <a:ChangeFormatting Bold="{x:Null}" Border="{x:Null}" EditPassword="{x:Null}" FontColor="{x:Null}" FontSize="{x:Null}" FontStyle="{x:Null}" OpenPassword="{x:Null}" AutoFit="True" DisplayName="Change formatting" FileName="[&quot;C:\Users\&quot; + Environment.UserName +  &quot;\RPA.xlsx&quot;]" sap:VirtualizedContainerService.HintSize="333.6,188" sap2010:WorkflowViewState.IdRef="ChangeFormatting_2" Range="A:E" SheetName="OLX" />
+                                                            <a:ChangeFormatting Bold="{x:Null}" Border="{x:Null}" EditPassword="{x:Null}" FontColor="{x:Null}" FontSize="{x:Null}" FontStyle="{x:Null}" OpenPassword="{x:Null}" AutoFit="True" DisplayName="Change formatting" FileName="[excelPath + &quot;\&quot; + inputCarModel +  &quot;.xlsx&quot;]" sap:VirtualizedContainerService.HintSize="290.4,188" sap2010:WorkflowViewState.IdRef="ChangeFormatting_2" Range="A:E" SheetName="OLX" />
                                                           </FlowStep>
                                                         </FlowStep.Next>
                                                       </FlowStep>
@@ -698,75 +697,6 @@
     <x:Reference>__ReferenceID13</x:Reference>
     <x:Reference>__ReferenceID14</x:Reference>
     <x:Reference>__ReferenceID15</x:Reference>
-    <FlowStep>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">540,483.6</av:Point>
-          <av:Size x:Key="ShapeSize">200,52.8</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">320,687.3 320,717.3 211.1,717.3 211.1,788</av:PointCollection>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Lowest" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
-        <ui:Click.CursorPosition>
-          <ui:CursorPosition Position="Center">
-            <ui:CursorPosition.OffsetX>
-              <InArgument x:TypeArguments="x:Int32" />
-            </ui:CursorPosition.OffsetX>
-            <ui:CursorPosition.OffsetY>
-              <InArgument x:TypeArguments="x:Int32" />
-            </ui:CursorPosition.OffsetY>
-          </ui:CursorPosition>
-        </ui:Click.CursorPosition>
-        <ui:Click.Target>
-          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f6431bd7-a386-405e-9fbe-603441261e2a" InformativeScreenshot="19db26d769fcbe7f133e355bb6766ab4" Selector="&lt;html app='msedge.exe' title='*OLX.ro*' /&gt;&lt;webctrl parentid='targetorder-select-gallery' tag='LI' idx='2' /&gt;&lt;webctrl parentid='targetorder-select-gallery' tag='A' /&gt;">
-            <ui:Target.TimeoutMS>
-              <InArgument x:TypeArguments="x:Int32" />
-            </ui:Target.TimeoutMS>
-            <ui:Target.WaitForReady>
-              <InArgument x:TypeArguments="ui:WaitForReady" />
-            </ui:Target.WaitForReady>
-          </ui:Target>
-        </ui:Click.Target>
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </ui:Click>
-    </FlowStep>
-    <FlowStep>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">330,483.6</av:Point>
-          <av:Size x:Key="ShapeSize">200,52.8</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">110,687.3 110,717.3 211.1,717.3 211.1,788</av:PointCollection>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Highest" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
-        <ui:Click.CursorPosition>
-          <ui:CursorPosition Position="Center">
-            <ui:CursorPosition.OffsetX>
-              <InArgument x:TypeArguments="x:Int32" />
-            </ui:CursorPosition.OffsetX>
-            <ui:CursorPosition.OffsetY>
-              <InArgument x:TypeArguments="x:Int32" />
-            </ui:CursorPosition.OffsetY>
-          </ui:CursorPosition>
-        </ui:Click.CursorPosition>
-        <ui:Click.Target>
-          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="183e5326-6c72-4a6e-a50f-3623c5bee752" InformativeScreenshot="059a24bc9c2a336ff5590e7a884afa50" Selector="&lt;html app='msedge.exe' title='*OLX.ro*' /&gt;&lt;webctrl parentid='targetorder-select-gallery' tag='LI' idx='3' /&gt;&lt;webctrl parentid='targetorder-select-gallery' tag='A' /&gt;" WaitForReady="COMPLETE">
-            <ui:Target.TimeoutMS>
-              <InArgument x:TypeArguments="x:Int32" />
-            </ui:Target.TimeoutMS>
-          </ui:Target>
-        </ui:Click.Target>
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </ui:Click>
-    </FlowStep>
     <x:Reference>__ReferenceID16</x:Reference>
   </Flowchart>
 </Activity>
