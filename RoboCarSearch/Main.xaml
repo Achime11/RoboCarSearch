@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1208,782" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1208,1290" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="28">
       <x:String>System.Activities</x:String>
@@ -73,6 +73,7 @@
       <Variable x:TypeArguments="x:Int32" Name="emailPort" />
       <Variable x:TypeArguments="x:String" Name="emailServer" />
       <Variable x:TypeArguments="x:String" Name="emailToSend" />
+      <Variable x:TypeArguments="x:Int32" Name="inputNumAds" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -98,10 +99,21 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke UserInputWorkflow workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="UserInputWorkflow.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <OutArgument x:TypeArguments="x:String" x:Key="sortType">[sortType]</OutArgument>
-          <OutArgument x:TypeArguments="x:String" x:Key="inputCarModel">[inputCarModel]</OutArgument>
-          <OutArgument x:TypeArguments="x:String" x:Key="inputMaxPrice">[inputMaxPrice]</OutArgument>
-          <OutArgument x:TypeArguments="x:String" x:Key="excelPath">[excelPath]</OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="sortType">
+            <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="sortType" />
+          </OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="inputCarModel">
+            <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="inputCarModel" />
+          </OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="inputMaxPrice">
+            <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="inputMaxPrice" />
+          </OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="excelPath">
+            <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="excelPath" />
+          </OutArgument>
+          <OutArgument x:TypeArguments="x:Int32" x:Key="inputNumAds">
+            <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="inputNumAds" />
+          </OutArgument>
         </ui:InvokeWorkflowFile.Arguments>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -134,12 +146,23 @@
                   <av:PointCollection x:Key="ConnectorLocation">201,580 201,630</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SearchOnSiteWorkflow workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="SearchOnSiteWorkflow.xaml">
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SearchOnSiteWorkflow workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="SearchOnSiteWorkflow.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:String" x:Key="inputCarModel">[inputCarModel]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="inputMaxPrice">[inputMaxPrice]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="sortType">[sortType]</InArgument>
-                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="outputAds">[outputAds]</OutArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="inputCarModel">
+                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="inputCarModel" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="inputMaxPrice">
+                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="inputMaxPrice" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="sortType">
+                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="sortType" />
+                  </InArgument>
+                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="outputAds">
+                    <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="outputAds" />
+                  </OutArgument>
+                  <InArgument x:TypeArguments="x:Int32" x:Key="inputNumAds">
+                    <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="inputNumAds" />
+                  </InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
