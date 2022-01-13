@@ -392,9 +392,9 @@
                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
-                                                      <ui:InterruptibleWhile Condition="[(adsCount&lt;40 and adsCount&lt;=inputNumAds)]" DisplayName="While Ads are still on the current page" sap:VirtualizedContainerService.HintSize="1184,1880.8" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
+                                                      <ui:InterruptibleWhile Condition="[(adsCount&lt;40 and adsCount&lt;=inputNumAds)]" DisplayName="While Ads are still on the current page" sap:VirtualizedContainerService.HintSize="800,1780.8" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
                                                         <ui:InterruptibleWhile.Body>
-                                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="764.8,1713.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="764.8,1613.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
                                                             <sap:WorkflowViewStateService.ViewState>
                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -527,14 +527,6 @@
                                                                 </Sequence>
                                                               </If.Else>
                                                             </If>
-                                                            <Assign sap:VirtualizedContainerService.HintSize="723.2,60" sap2010:WorkflowViewState.IdRef="Assign_13">
-                                                              <Assign.To>
-                                                                <OutArgument x:TypeArguments="x:Int32">[adsCount]</OutArgument>
-                                                              </Assign.To>
-                                                              <Assign.Value>
-                                                                <InArgument x:TypeArguments="x:Int32">[adsCount + 1]</InArgument>
-                                                              </Assign.Value>
-                                                            </Assign>
                                                           </Sequence>
                                                         </ui:InterruptibleWhile.Body>
                                                       </ui:InterruptibleWhile>
