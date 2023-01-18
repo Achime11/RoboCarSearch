@@ -1,15 +1,14 @@
 {
-  "name": "RoboCarSearch",
+  "name": "RoboCarSearch_Windows",
   "description": "A project with an automatic UiPath Robot that searches for a car entered by the user as input on various car sites.🤖🔎🚗",
   "main": "Main.xaml",
   "dependencies": {
-    "AdvanceExcel": "[1.0.9]",
     "UiPath.Credentials.Activities": "[2.0.0]",
     "UiPath.Excel.Activities": "[2.11.4]",
     "UiPath.Mail.Activities": "[1.12.3]",
     "UiPath.System.Activities": "[21.10.2]",
-    "UiPath.UIAutomation.Activities": "[21.11.0-preview]",
-    "UiPath.WebAPI.Activities": "[1.9.3-preview]"
+    "UiPath.UIAutomation.Activities": "[22.4.7]",
+    "UiPath.WebAPI.Activities": "[1.11.2]"
   },
   "webServices": [],
   "entitiesStores": [],
@@ -30,7 +29,8 @@
     "executionType": "Workflow",
     "readyForPiP": false,
     "startsInPiP": false,
-    "mustRestoreAllDependencies": true
+    "mustRestoreAllDependencies": true,
+    "pipType": "ChildSession"
   },
   "designOptions": {
     "projectProfile": "Developement",
@@ -57,5 +57,5 @@
   "isTemplate": false,
   "templateProjectData": {},
   "publishData": {},
-  "targetFramework": "Legacy"
+  "targetFramework": "Windows"
 }
