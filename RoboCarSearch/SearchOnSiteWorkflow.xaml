@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SearchOnSiteWorkflow" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SearchOnSiteWorkflow" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="inputCarModel" Type="InArgument(x:String)" />
     <x:Property Name="inputMaxPrice" Type="InArgument(x:String)" />
@@ -6,13 +6,13 @@
     <x:Property Name="outputAds" Type="OutArgument(sd:DataTable)" />
     <x:Property Name="inputNumAds" Type="InArgument(x:Int32)" />
   </x:Members>
-  <mva:VisualBasic.Settings>
+  <VisualBasic.Settings>
     <x:Null />
-  </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1280,2150</sap:VirtualizedContainerService.HintSize>
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1214,2150</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SearchOnSiteWorkflow_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="32">
+    <scg:List x:TypeArguments="x:String" Capacity="64">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -45,6 +45,8 @@
       <x:String>System.Xml.Serialization</x:String>
       <x:String>UiPath.Excel.Activities</x:String>
       <x:String>Advance_Excel</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -336,7 +338,7 @@
                                         <av:PointCollection x:Key="ConnectorLocation">220,1407.5 220,1444.5</av:PointCollection>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBefore="400" DisplayName="Type Into Search Field" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[inputCarModel]">
+                                    <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBefore="1000" DisplayName="Type Into Search Field" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[inputCarModel]">
                                       <ui:TypeInto.Target>
                                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a8d8d313-f8b6-4bb5-836a-9bad6b759876" InformativeScreenshot="673ebf6617d520840c2d23994d6ee514" Selector="&lt;html app='msedge.exe' title='*OLX.ro*' /&gt;&lt;webctrl tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                                           <ui:Target.TimeoutMS>
@@ -442,25 +444,25 @@
                                                             <av:PointCollection x:Key="ConnectorLocation">220,1967.5 220,1995.5</av:PointCollection>
                                                           </scg:Dictionary>
                                                         </sap:WorkflowViewStateService.ViewState>
-                                                        <ui:InterruptibleWhile Condition="[inputNumAds&gt;0]" DisplayName="While are still ads to extract from the search" sap:VirtualizedContainerService.HintSize="1738,3526" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+                                                        <ui:InterruptibleWhile Condition="[inputNumAds&gt;0]" DisplayName="While are still ads to extract from the search" sap:VirtualizedContainerService.HintSize="854,4225" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
                                                           <ui:InterruptibleWhile.Body>
-                                                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1702,3360" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                                                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="776,4092" sap2010:WorkflowViewState.IdRef="Sequence_2">
                                                               <sap:WorkflowViewStateService.ViewState>
                                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                 </scg:Dictionary>
                                                               </sap:WorkflowViewStateService.ViewState>
-                                                              <ui:InterruptibleWhile Condition="[(adsCount&lt;41 and adsCount&lt;=inputNumAds)]" DisplayName="While Ads are still on the current page" sap:VirtualizedContainerService.HintSize="1640,2051" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
+                                                              <ui:InterruptibleWhile Condition="[(adsCount&lt;41 and adsCount&lt;=inputNumAds)]" DisplayName="While Ads are still on the current page" sap:VirtualizedContainerService.HintSize="714,2229" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
                                                                 <ui:InterruptibleWhile.Body>
-                                                                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1099,1885" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                                                                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="636,2096" sap2010:WorkflowViewState.IdRef="Sequence_5">
                                                                     <sap:WorkflowViewStateService.ViewState>
                                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                       </scg:Dictionary>
                                                                     </sap:WorkflowViewStateService.ViewState>
-                                                                    <ui:UiElementExists DisplayName="Element Exists Ad Title" Exists="[existsAd]" sap:VirtualizedContainerService.HintSize="1037,107" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+                                                                    <ui:UiElementExists DisplayName="Element Exists Ad Title" Exists="[existsAd]" sap:VirtualizedContainerService.HintSize="574,107" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
                                                                       <ui:UiElementExists.Target>
-                                                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cb1146ae-67be-49b4-8a54-ba89b99f72d8" InformativeScreenshot="2024e6a1eac3c3585949720f57902547" Selector="[String.Format(&quot;&lt;html app='msedge.exe' title='*OLX.ro*' /&gt;&lt;webctrl tag='A' idx='{0}' /&gt;&lt;webctrl idx='12' /&gt;&quot;, adsIndex)]">
+                                                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cb1146ae-67be-49b4-8a54-ba89b99f72d8" InformativeScreenshot="2024e6a1eac3c3585949720f57902547" Selector="[String.Format(&quot;&lt;html app='msedge.exe' title='*OLX.ro*' /&gt;&lt;webctrl tag='A' class='css-rc5s2u' idx='{0}' /&gt;&lt;webctrl idx='12' /&gt;&quot;, adsCount)]">
                                                                           <ui:Target.TimeoutMS>
                                                                             <InArgument x:TypeArguments="x:Int32" />
                                                                           </ui:Target.TimeoutMS>
@@ -470,7 +472,7 @@
                                                                         </ui:Target>
                                                                       </ui:UiElementExists.Target>
                                                                     </ui:UiElementExists>
-                                                                    <If Condition="[existsAd]" sap:VirtualizedContainerService.HintSize="1037,1627" sap2010:WorkflowViewState.IdRef="If_1">
+                                                                    <If Condition="[existsAd]" sap:VirtualizedContainerService.HintSize="574,1838" sap2010:WorkflowViewState.IdRef="If_1">
                                                                       <If.Then>
                                                                         <Sequence sap:VirtualizedContainerService.HintSize="496,1469" sap2010:WorkflowViewState.IdRef="Sequence_6">
                                                                           <sap:WorkflowViewStateService.ViewState>
@@ -480,7 +482,7 @@
                                                                           </sap:WorkflowViewStateService.ViewState>
                                                                           <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Ad Title Text" sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="GetValue_11">
                                                                             <ui:GetValue.Target>
-                                                                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="84202a30-d808-4ffe-8a1f-7caeef0cdcde" InformativeScreenshot="75a841bd1ceba01d9df0d4cce47614f5" Selector="[String.Format(&quot;&lt;html app='msedge.exe' title='*OLX.ro*' /&gt;&lt;webctrl tag='A' idx='{0}' /&gt;&lt;webctrl idx='12' /&gt;&quot;, adsIndex)]" WaitForReady="COMPLETE">
+                                                                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="84202a30-d808-4ffe-8a1f-7caeef0cdcde" InformativeScreenshot="75a841bd1ceba01d9df0d4cce47614f5" Selector="[String.Format(&quot;&lt;html app='msedge.exe' title='*OLX.ro*' /&gt;&lt;webctrl tag='A' class='css-rc5s2u' idx='{0}' /&gt;&lt;webctrl tag='H6' /&gt;&quot;, adsCount)]" WaitForReady="COMPLETE">
                                                                                 <ui:Target.TimeoutMS>
                                                                                   <InArgument x:TypeArguments="x:Int32" />
                                                                                 </ui:Target.TimeoutMS>
@@ -498,7 +500,7 @@
                                                                           </ui:GetValue>
                                                                           <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Ad Price" sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="GetValue_12">
                                                                             <ui:GetValue.Target>
-                                                                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8a58cf80-3a58-4bfc-919a-1062c1a00cb1" InformativeScreenshot="afbba0fe2e3923f2cac3a300a94a52e6" Selector="[String.Format(&quot;&lt;html app='msedge.exe' title='*OLX.ro*' /&gt;&lt;webctrl tag='A' idx='{0}' /&gt;&lt;webctrl innerText='*€*' tag='P' /&gt;&quot;, adsIndex)]">
+                                                                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8a58cf80-3a58-4bfc-919a-1062c1a00cb1" InformativeScreenshot="afbba0fe2e3923f2cac3a300a94a52e6" Selector="[String.Format(&quot;&lt;html app='msedge.exe' title='*OLX.ro*' /&gt;&lt;webctrl tag='A' class='css-rc5s2u' idx='{0}' /&gt;&lt;webctrl innerText='*€*' tag='P' /&gt;&quot;, adsCount)]">
                                                                                 <ui:Target.TimeoutMS>
                                                                                   <InArgument x:TypeArguments="x:Int32" />
                                                                                 </ui:Target.TimeoutMS>
@@ -513,7 +515,7 @@
                                                                           </ui:GetValue>
                                                                           <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Ad Location and Date Text" sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="GetValue_13">
                                                                             <ui:GetValue.Target>
-                                                                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="84202a30-d808-4ffe-8a1f-7caeef0cdcde" InformativeScreenshot="324f2451a842d90263a75821f0dd807e" Selector="[String.Format(&quot;&lt;html app='msedge.exe' title='*OLX.ro*' /&gt;&lt;webctrl tag='A' idx='{0}' /&gt;&lt;webctrl aaname='* - *' tag='P' /&gt;&quot;, adsIndex)]">
+                                                                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="84202a30-d808-4ffe-8a1f-7caeef0cdcde" InformativeScreenshot="324f2451a842d90263a75821f0dd807e" Selector="[String.Format(&quot;&lt;html app='msedge.exe' title='*OLX.ro*' /&gt;&lt;webctrl tag='A' class='css-rc5s2u' idx='{0}' /&gt;&lt;webctrl aaname='* - *' tag='P' /&gt;&quot;, adsCount)]">
                                                                                 <ui:Target.TimeoutMS>
                                                                                   <InArgument x:TypeArguments="x:Int32" />
                                                                                 </ui:Target.TimeoutMS>
@@ -547,7 +549,7 @@
                                                                               <OutArgument x:TypeArguments="x:String">[outputUrl]</OutArgument>
                                                                             </ui:GetAttribute.Result>
                                                                             <ui:GetAttribute.Target>
-                                                                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7d33f6ee-0fe7-4575-b713-7f0c9c584227" InformativeScreenshot="201463d7046d7f0f53ae037ce008616d" Selector="[String.Format(&quot;&lt;html app='msedge.exe' title='*OLX.ro*' /&gt;&lt;webctrl tag='A' idx='{0}' /&gt;&quot;, adsIndex)]">
+                                                                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7d33f6ee-0fe7-4575-b713-7f0c9c584227" InformativeScreenshot="201463d7046d7f0f53ae037ce008616d" Selector="[String.Format(&quot;&lt;html app='msedge.exe' title='*OLX.ro*' /&gt;&lt;webctrl tag='A' class='css-rc5s2u' idx='{0}' /&gt;&quot;, adsCount)]">
                                                                                 <ui:Target.TimeoutMS>
                                                                                   <InArgument x:TypeArguments="x:Int32" />
                                                                                 </ui:Target.TimeoutMS>
@@ -604,7 +606,7 @@
                                                                   </Sequence>
                                                                 </ui:InterruptibleWhile.Body>
                                                               </ui:InterruptibleWhile>
-                                                              <Assign DisplayName="Substract 40 ads from total ads" sap:VirtualizedContainerService.HintSize="1640,82" sap2010:WorkflowViewState.IdRef="Assign_14">
+                                                              <Assign DisplayName="Substract 40 ads from total ads" sap:VirtualizedContainerService.HintSize="714,82" sap2010:WorkflowViewState.IdRef="Assign_14">
                                                                 <Assign.To>
                                                                   <OutArgument x:TypeArguments="x:Int32">[inputNumAds]</OutArgument>
                                                                 </Assign.To>
@@ -612,15 +614,15 @@
                                                                   <InArgument x:TypeArguments="x:Int32">[inputNumAds-40]</InArgument>
                                                                 </Assign.Value>
                                                               </Assign>
-                                                              <If Condition="[inputNumAds&gt;0]" sap:VirtualizedContainerService.HintSize="1640,1036" sap2010:WorkflowViewState.IdRef="If_6">
+                                                              <If Condition="[inputNumAds&gt;0]" sap:VirtualizedContainerService.HintSize="714,1590" sap2010:WorkflowViewState.IdRef="If_6">
                                                                 <If.Then>
-                                                                  <Sequence sap:VirtualizedContainerService.HintSize="1099,878" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                                                  <Sequence sap:VirtualizedContainerService.HintSize="636,1089" sap2010:WorkflowViewState.IdRef="Sequence_16">
                                                                     <sap:WorkflowViewStateService.ViewState>
                                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                       </scg:Dictionary>
                                                                     </sap:WorkflowViewStateService.ViewState>
-                                                                    <ui:UiElementExists DisplayName="Next Page Element Exists" Exists="[existsNextPage]" sap:VirtualizedContainerService.HintSize="1037,107" sap2010:WorkflowViewState.IdRef="UiElementExists_5">
+                                                                    <ui:UiElementExists DisplayName="Next Page Element Exists" Exists="[existsNextPage]" sap:VirtualizedContainerService.HintSize="574,107" sap2010:WorkflowViewState.IdRef="UiElementExists_5">
                                                                       <ui:UiElementExists.Target>
                                                                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d0df8e48-2153-4b72-8406-85aae2688e25" InformativeScreenshot="22805711fa628bb53c1ad50f3a08d89c" Selector="&lt;html app='msedge.exe' title='*OLX.ro*' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;ul&amp;gt;a&amp;gt;svg' tag='svg' /&gt;">
                                                                           <ui:Target.TimeoutMS>
@@ -632,7 +634,7 @@
                                                                         </ui:Target>
                                                                       </ui:UiElementExists.Target>
                                                                     </ui:UiElementExists>
-                                                                    <If Condition="[existsNextPage]" sap:VirtualizedContainerService.HintSize="1037,620" sap2010:WorkflowViewState.IdRef="If_5">
+                                                                    <If Condition="[existsNextPage]" sap:VirtualizedContainerService.HintSize="574,831" sap2010:WorkflowViewState.IdRef="If_5">
                                                                       <If.Then>
                                                                         <Sequence sap:VirtualizedContainerService.HintSize="496,462" sap2010:WorkflowViewState.IdRef="Sequence_14">
                                                                           <sap:WorkflowViewStateService.ViewState>
